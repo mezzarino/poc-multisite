@@ -1,0 +1,38 @@
+{
+  "name": "shared-components-mezzarino",
+  "version": "1.0.0",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist",
+    "./styles.css": "./dist/index.css"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.tsx --format cjs --dts",
+    "dev": "yarn build --watch",
+    "check-types": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.5",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "postcss": "^8.4.20",
+    "react": "^18.2.0",
+    "tailwind-config": "*",
+    "tsconfig": "*",
+    "tsup": "^6.1.3",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.26.2"
+  },
+  "description": "Test component package added to npm",
+  "author": ""
+}
