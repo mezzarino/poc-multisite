@@ -1,6 +1,6 @@
 {
   "name": "shared-components-mezzarino",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "sideEffects": [
     "**/*.css"
   ],
@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsup src/index.tsx --format cjs --dts",
+    "build": "tsup",
     "dev": "yarn build --watch",
     "check-types": "tsc --noEmit"
   },
