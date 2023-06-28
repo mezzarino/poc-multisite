@@ -14,8 +14,8 @@ export default function Home() {
         Brand A on Funnel project
         </h1>
         <Link href="/">Home</Link>
-        <div className="mt-12 mx-auto w-96 text-blue-700 border border-blue-700 p-4">
-          <CurrencyWidget />
+        <div className="mt-12 mx-auto w-1/2 text-blue-700 border border-blue-700 p-4">
+        <CurrencyWidget apiKey={process.env.X_RAPIDAPI_KEY} apiHost={process.env.X_RAPIDAPI_HOST} />
         </div>
       </main>
     </div>

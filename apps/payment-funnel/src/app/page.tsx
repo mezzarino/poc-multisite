@@ -24,10 +24,10 @@ export default function Home() {
             <Link href="/brands/brand-c" className="p-4 border border-white bg-white text-gray-600">Brand C</Link>
           </li>
         </ul>
-        <div className="mt-12 mx-auto w-96 text-white border border-white p-4">
-          <CurrencyWidget />
-        </div>
       </main>
+      <div className="mt-12 mx-auto w-1/2 text-white border border-white p-4">
+        <CurrencyWidget apiKey={process.env.X_RAPIDAPI_KEY} apiHost={process.env.X_RAPIDAPI_HOST} />
+        </div>
     </div>
   );
 }

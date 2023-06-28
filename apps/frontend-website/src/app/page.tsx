@@ -12,8 +12,8 @@ export default function Home() {
         <h1 className="mx-auto text-center text-6xl font-bold tracking-tight text-black sm:text-7xl lg:text-8xl xl:text-8xl">
           Customer website project
         </h1>
-        <div className="mt-12 mx-auto w-96 text-black border border-black p-4">
-          <CurrencyWidget />
+        <div className="mt-12 mx-auto w-1/2 text-black border border-black p-4">
+          <CurrencyWidget apiKey={process.env.X_RAPIDAPI_KEY} apiHost={process.env.X_RAPIDAPI_HOST} />
         </div>
       </main>
     </div>

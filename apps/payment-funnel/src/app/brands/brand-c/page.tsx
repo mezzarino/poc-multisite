@@ -14,10 +14,10 @@ export default function Home() {
         Brand C on Funnel project
         </h1>
         <Link href="/">Home</Link>
-        <div className="mt-12 mx-auto w-96 text-green-600 border border-green-600 p-4">
-          <CurrencyWidget />
-        </div>
       </main>
+      <div className="mt-12 mx-auto w-1/2 text-green-600 border border-green-600 p-4">
+        <CurrencyWidget apiKey={process.env.X_RAPIDAPI_KEY} apiHost={process.env.X_RAPIDAPI_HOST} />
+      </div>
     </div>
   );
 }
