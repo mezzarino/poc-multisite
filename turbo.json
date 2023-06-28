@@ -4,6 +4,10 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
+      "env": [
+        "X_RAPIDAPI_KEY",
+        "X_RAPIDAPI_HOST"
+      ],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
     "lint": {},
