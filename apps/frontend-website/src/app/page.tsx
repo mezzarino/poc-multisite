@@ -6,6 +6,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+
+  const apiKey = process.env.X_RAPIDAPI_KEY as string;
+  const apiHost = process.env.X_RAPIDAPI_HOST as string;
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <main className="mx-auto w-auto px-4 pt-16 pb-8 sm:pt-24 lg:px-8">
@@ -13,7 +17,7 @@ export default function Home() {
           Customer website project
         </h1>
         <div className="mt-12 mx-auto w-1/2 text-black border border-black p-4">
-          <CurrencyWidget apiKey={process.env.X_RAPIDAPI_KEY} apiHost={process.env.X_RAPIDAPI_HOST} />
+          <CurrencyWidget apiKey={apiKey} apiHost={apiHost} />
         </div>
       </main>
     </div>
