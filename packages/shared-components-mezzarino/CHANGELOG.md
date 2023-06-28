@@ -1,5 +1,15 @@
 # shared-components-mezzarino
 
+## 5.0.0
+
+### Major Changes
+
+- Added dist file for package to build properly
+- Updated tsup config to allow client components
+- Updated component to ensure shared configs are not used
+- Text update to confirm the package is updating in npm
+- First commit to test npm
+
 ## 4.0.0
 
 ### Major Changes

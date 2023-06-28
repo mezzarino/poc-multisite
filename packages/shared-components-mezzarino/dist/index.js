@@ -1,7 +1,2 @@
-'use strict';
-
-var jsxRuntime = require('react/jsx-runtime');
-
-var r=()=>jsxRuntime.jsx("div",{className:"ui-p-4 ui-h-full",children:jsxRuntime.jsx("p",{className:"ui-inline-block ui-text-xl",children:"This is an example widget, which is shared across funnel, customer and external website projects."})});
-
-exports.CurrencyWidget = r;
+'use client'
+"use strict";var n=Object.defineProperty;var r=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var c=Object.prototype.hasOwnProperty;var u=(t,e)=>{for(var i in e)n(t,i,{get:e[i],enumerable:!0})},d=(t,e,i,o)=>{if(e&&typeof e=="object"||typeof e=="function")for(let s of l(e))!c.call(t,s)&&s!==i&&n(t,s,{get:()=>e[s],enumerable:!(o=r(e,s))||o.enumerable});return t};var h=t=>d(n({},"__esModule",{value:!0}),t);var x={};u(x,{CurrencyWidget:()=>m});module.exports=h(x);var p=require("react"),a=require("react/jsx-runtime"),m=()=>{let[t,e]=(0,p.useState)(0);return(0,a.jsxs)("div",{className:"ui-p-4 ui-h-full",children:[(0,a.jsx)("p",{className:"ui-inline-block ui-text-xl",children:"This is an example widget, which is shared across funnel, customer and external website projects."}),(0,a.jsx)("p",{children:t}),(0,a.jsx)("p",{children:(0,a.jsx)("button",{onClick:()=>{e(23)},children:"Update the rate"})})]})};0&&(module.exports={CurrencyWidget});
