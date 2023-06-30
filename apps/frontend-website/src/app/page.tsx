@@ -1,14 +1,13 @@
 import { Metadata } from "next";
 import { CurrencyWidget } from "shared-components-mezzarino";
 
+import { apiKey, apiHost } from "./constants";
+
 export const metadata: Metadata = {
   title: "Customer website project",
 };
 
 export default function Home() {
-
-  const apiKey = process.env.X_RAPIDAPI_KEY as string;
-  const apiHost = process.env.X_RAPIDAPI_HOST as string;
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">

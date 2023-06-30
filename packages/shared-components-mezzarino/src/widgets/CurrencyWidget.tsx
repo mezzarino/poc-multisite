@@ -1,54 +1,7 @@
-"use client";
-
-import { useState } from "react";
+import { exchangeRateData } from '../data/ExchangeRateData';
 
 export const CurrencyWidget = (props: { apiKey: string; apiHost: string; }) => {
-
-    const [euroRate, setEuroRate] = useState("");
-    const [dollarRate, setDollarRate] = useState("");
-
-    const exchangeRateApiConfig = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': props.apiKey as string,
-            'X-RapidAPI-Host': props.apiHost as string
-        }
-    };
-
-    const getExchangeRate = async (currencyCode: string) => {
-
-        const exchangeRateApiUrl = `https://exchange-rate-by-api-ninjas.p.rapidapi.com/v1/exchangerate?pair=GBP_${currencyCode}`;
-
-        try {
-            const response = await fetch(exchangeRateApiUrl, exchangeRateApiConfig);
-            const result = await response.json();
-
-            return result.exchange_rate;
-            
-        } catch (error) {
-            return (error);
-        }
-    }
-
-    const getEuroRate = () => {
-
-        getExchangeRate("EUR").then((convertedExchangeRate) => {
-            const exchangeRate: string = convertedExchangeRate as string;
-            setEuroRate(exchangeRate);
-        });
-    };
-
-    const getDollarRate = () => {
-        getExchangeRate("USD").then((convertedExchangeRate) => {
-            const exchangeRate: string = convertedExchangeRate as string;
-            setDollarRate(exchangeRate);
-        });
-    };
-
-    getEuroRate();
-
-    getDollarRate();
-
+    
     return (
         <>
             <div className="ui-p-4 ui-h-full">
@@ -81,7 +34,7 @@ export const CurrencyWidget = (props: { apiKey: string; apiHost: string; }) => {
                                 Euro (EUR)
                             </td>
                             <td className="ui-px-6 ui-py-4">
-                                {euroRate}
+                                {exchangeRateData[0].rate}
                             </td>
                         </tr>
                         <tr className="ui-border-b">
@@ -92,7 +45,7 @@ export const CurrencyWidget = (props: { apiKey: string; apiHost: string; }) => {
                                 U.S. Dollar (USD)
                             </td>
                             <td className="ui-px-6 ui-py-4">
-                                {dollarRate}
+                                {exchangeRateData[1].rate}
                             </td>
                         </tr>
                     </tbody>
