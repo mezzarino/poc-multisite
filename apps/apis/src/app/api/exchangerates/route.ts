@@ -6,13 +6,19 @@ export async function GET() {
             id: 1,
             country: "European Union",
             currency: "Euro (EUR)",
-            rate: 1.1232
+            rate: 1.1348
         },
         {
             id: 2,
-            country: "United States",
+            country: "USA",
             currency: "U.S. Dollar (USD)",
-            rate: 1.2674
+            rate: 1.2359
+        },
+        {
+            id: 3,
+            country: "Australia",
+            currency: "Australian Dollar (AUD)",
+            rate: 1.8501
         }
     ]);
 };
