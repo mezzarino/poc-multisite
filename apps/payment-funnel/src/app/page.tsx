@@ -6,6 +6,7 @@ import { apiKey, apiHost } from "./constants";
 
 export const metadata: Metadata = {
   title: "Funnel project",
+  description: "Funnel project"
 };
 
 export default function Home() {

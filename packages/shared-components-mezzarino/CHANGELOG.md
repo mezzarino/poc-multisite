@@ -1,5 +1,18 @@
 # shared-components-mezzarino
 
+## 9.0.0
+
+### Major Changes
+
+- Use separate rest api for project
+- Added dist file for package to build properly
+- Updated tsup config to allow client components
+- Removed the API calls for now as it maxed out the limit
+- Updated component to ensure shared configs are not used
+- Text update to confirm the package is updating in npm
+- Added example exchange rate API
+- First commit to test npm
+
 ## 8.0.0
 
 ### Major Changes

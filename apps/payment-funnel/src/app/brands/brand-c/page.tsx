@@ -4,6 +4,7 @@ import { CurrencyWidget } from "shared-components-mezzarino";
 
 export const metadata: Metadata = {
   title: "Brand C on Funnel project",
+  description: "Brand B on Funnel project"
 };
 
 export default function Home() {

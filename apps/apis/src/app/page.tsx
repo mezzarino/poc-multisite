@@ -1,11 +1,9 @@
 import { Metadata } from "next";
-import { CurrencyWidget } from "shared-components-mezzarino";
-
-import { apiKey, apiHost } from "./constants";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Customer website project",
-  description: "Customer website project"
+  title: "API Project",
+  description: "API Project"
 };
 
 export default function Home() {
@@ -14,11 +12,9 @@ export default function Home() {
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <main className="mx-auto w-auto px-4 pt-16 pb-8 sm:pt-24 lg:px-8">
         <h1 className="mx-auto text-center text-6xl font-bold tracking-tight text-black sm:text-7xl lg:text-8xl xl:text-8xl">
-          Customer website project
+          API Project
         </h1>
-        <div className="mt-12 mx-auto w-1/2 text-black border border-black p-4">
-          <CurrencyWidget apiKey={apiKey} apiHost={apiHost} />
-        </div>
+        <p className="mt-12 mx-auto text-black"><Link className="text-black border border-black p-2" href="/api/exchangerates">View Exchange Rates API</Link></p>
       </main>
     </div>
   );
