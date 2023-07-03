@@ -4,7 +4,7 @@ module.exports = {
     return [
       {
         source: "/api/exchangerates",
-        destination: "http://localhost:3002/api/exchangerates"
+        destination: "https://poc-multisite-apis-b9bv5jrfb-mezzarino.vercel.app/api/exchangerates"
       }
     ]
   },
