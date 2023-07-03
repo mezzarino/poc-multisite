@@ -1,7 +1,47 @@
-import { exchangeRateData } from '../data/ExchangeRateData';
+"use client"
+
+import { useEffect, useState } from "react";
 
 export const CurrencyWidget = (props: { apiKey: string; apiHost: string; }) => {
+
+    const [exchangeRate, setExchangeRate] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    const getExchangeRates = async () => {
+        const response = await fetch("/api/exchangerates");
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch exchange rates");
+        }
+
+        setExchangeRate(await response.json());
+        setLoading(false);
+    };
+
+    const loadingRates = <tr className="ui-border-b"><th scope="row" colSpan={3} className="ui-px-6 ui-py-4 ui-font-medium ui-whitespace-nowrap">Loading rates...</th></tr>
     
+    const loadedRates = exchangeRate.map((currency) => {
+        return (
+          <tr className="ui-border-b" key={currency.id}>
+            <th scope="row" className="ui-px-6 ui-py-4 ui-font-medium ui-whitespace-nowrap">
+              {currency.country}
+            </th>
+            <td className="ui-px-6 ui-py-4">
+              {currency.currency}
+            </td>
+            <td className="ui-px-6 ui-py-4">
+              {currency.rate}
+            </td>
+          </tr>
+        );
+    });
+
+    const rateContent: JSX.Element = !loading ? loadedRates as unknown as JSX.Element : loadingRates;
+
+    useEffect(() => {
+        getExchangeRates();
+    }, []);
+
     return (
         <>
             <div className="ui-p-4 ui-h-full">
@@ -26,28 +66,7 @@ export const CurrencyWidget = (props: { apiKey: string; apiHost: string; }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className="ui-border-b">
-                            <th scope="row" className="ui-px-6 ui-py-4 ui-font-medium ui-whitespace-nowrap">
-                                European Union
-                            </th>
-                            <td className="ui-px-6 ui-py-4">
-                                Euro (EUR)
-                            </td>
-                            <td className="ui-px-6 ui-py-4">
-                                {exchangeRateData[0].rate}
-                            </td>
-                        </tr>
-                        <tr className="ui-border-b">
-                            <th scope="row" className="ui-px-6 ui-py-4 ui-font-medium ui-whitespace-nowrap">
-                                USA
-                            </th>
-                            <td className="ui-px-6 ui-py-4">
-                                U.S. Dollar (USD)
-                            </td>
-                            <td className="ui-px-6 ui-py-4">
-                                {exchangeRateData[1].rate}
-                            </td>
-                        </tr>
+                    {rateContent}
                     </tbody>
                 </table>
             </div>
