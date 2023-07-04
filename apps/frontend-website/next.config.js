@@ -5,6 +5,7 @@ const ContentSecurityPolicy = `
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
+  object-src 'none';
   font-src 'self';
 `.replace(/\n/g, '');
  
