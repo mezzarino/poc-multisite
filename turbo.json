@@ -6,7 +6,8 @@
       "dependsOn": ["^build"],
       "env": [
         "X_RAPIDAPI_KEY",
-        "X_RAPIDAPI_HOST"
+        "X_RAPIDAPI_HOST",
+        "NODE_ENV"
       ],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
