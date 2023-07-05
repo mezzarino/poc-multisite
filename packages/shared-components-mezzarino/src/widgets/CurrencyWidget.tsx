@@ -6,6 +6,25 @@ export const CurrencyWidget = (props: { apiKey: string; apiHost: string }) => {
   const [exchangeRate, setExchangeRate] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const checkRateCache = () => {
+    const cache = localStorage.getItem("exchangeRates");
+    if (cache) {
+      const cacheData = JSON.parse(cache);
+      const cacheTime = cacheData.time;
+      const currentTime = new Date().getTime();
+
+      if (currentTime - cacheTime <= 15 * 60 * 1000) {
+        setExchangeRate(cacheData.data);
+        setLoading(false);
+      } else {
+        localStorage.removeItem("exchangeRates");
+        getExchangeRates();
+      }
+    } else {
+      getExchangeRates();
+    }
+  };
+
   const getExchangeRates = async () => {
     const response = await fetch("/api/exchangerates");
 
@@ -13,7 +32,15 @@ export const CurrencyWidget = (props: { apiKey: string; apiHost: string }) => {
       throw new Error("Failed to fetch exchange rates");
     }
 
-    setExchangeRate(await response.json());
+    const data = await response.json();
+
+    const cacheData = {
+      time: new Date().getTime(),
+      data: data,
+    };
+    localStorage.setItem("exchangeRates", JSON.stringify(cacheData));
+
+    setExchangeRate(data);
     setLoading(false);
   };
 
@@ -49,7 +76,7 @@ export const CurrencyWidget = (props: { apiKey: string; apiHost: string }) => {
     : loadingRates;
 
   useEffect(() => {
-    getExchangeRates();
+    checkRateCache();
   }, []);
 
   return (
